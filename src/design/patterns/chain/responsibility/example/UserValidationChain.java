@@ -28,7 +28,7 @@ public class UserValidationChain {
         new BlackListHandler()
             .withNext(new UserRolesHandler())
             .withNext(new UserConcurrentSessionHandler())
-            .check("a");
+            .check("userIdToCheck");
 
     }
 }

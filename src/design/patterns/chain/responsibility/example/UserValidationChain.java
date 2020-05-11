@@ -23,12 +23,24 @@
  */
 package design.patterns.chain.responsibility.example;
 
+/**
+ * Example of the Chain of responsibility pattern applied to
+ * a chain of user validations. Consider the case where
+ * an user id must be validated through several stage
+ * before approving/rejecting its access to the system.
+ *
+ * The chain will be like:
+ *
+ * 1. Check of the user is blacklisted, if so, is rejected, if not,
+ *    the next step in the chain is called to validate more
+ * 2. Check if the user has the needed roles to use the system
+ * 3. Check if the user is not already logged in the system
+ */
 public class UserValidationChain {
     public static void main(String[] args) {
         new BlackListHandler()
             .withNext(new UserRolesHandler())
             .withNext(new UserConcurrentSessionHandler())
             .check("userIdToCheck");
-
     }
 }

@@ -23,6 +23,12 @@
  */
 package design.patterns.chain.responsibility;
 
+/**
+ * Implementation of Chain of Responsibility pattern
+ * To learn more about this pattern refer to:
+ *
+ * https://refactoring.guru/design-patterns/chain-of-responsibility
+ */
 public abstract class ChainableHandler<T> {
     private ChainableHandler<T> chain;
     private ChainableHandler<T> lastLink;
